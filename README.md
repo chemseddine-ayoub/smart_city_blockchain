@@ -72,7 +72,6 @@ Les données de la démonstration sont fictives. Les champs saisis et les adress
 - [Déclaration citoyenne](docs/captures/02-declaration.png)
 - [Gestion municipale et historique](docs/captures/03-gestion-municipale.png)
 - [Aperçu et validation Excel](docs/captures/04-import-excel.png)
-- [Démonstration vidéo](docs/demonstration.webm)
 
 La vidéo présente des transactions confirmées par le nœud Hardhat. La capture utilise un portefeuille de test compatible EIP-1193 avec les comptes fictifs du nœud. Pour la démonstration interactive, utilisez l’extension MetaMask en suivant les étapes ci-dessus.
 
