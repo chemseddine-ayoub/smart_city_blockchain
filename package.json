@@ -1,0 +1,22 @@
+{
+  "name": "Smart City & Blockchain",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:contracts": "hardhat build && node scripts/export-abi.mjs",
+    "test": "hardhat test",
+    "typecheck": "tsc --noEmit",
+    "node": "hardhat node --hostname 127.0.0.1",
+    "deploy:local": "npm run build:contracts && hardhat run scripts/deploy.ts --network localhost",
+    "seed:local": "hardhat run scripts/seed.ts --network localhost"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ignition": "^3.1.10",
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.7",
+    "@types/node": "^22.20.5",
+    "forge-std": "github:foundry-rs/forge-std#v1.17.0",
+    "hardhat": "^3.22.0",
+    "typescript": "~6.0.3",
+    "viem": "^2.58.2"
+  }
+}

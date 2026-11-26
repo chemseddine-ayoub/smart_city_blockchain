@@ -1,0 +1,50 @@
+:root {
+  font-family: Inter, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-synthesis: none;
+  color: #142b28;
+  background: #f4f7f6;
+  --ink: #142b28;
+  --muted: #536862;
+  --accent: #086451;
+  --accent-dark: #064e40;
+  --border: #dce7e3;
+  --surface: #ffffff;
+  --shadow: 0 1px 2px #182e2710;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+h1, h2, p, dl, dd, ol { margin: 0; }
+h1, h2, strong { line-height: 1.24; }
+h1 { font-size: clamp(2rem, 4vw, 2.75rem); letter-spacing: -0.045em; overflow-wrap: anywhere; }
+h2 { font-size: 1.2rem; letter-spacing: -0.02em; }
+a { color: var(--accent-dark); }
+button, input, select, textarea { font: inherit; }
+button, .button { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: not-allowed; opacity: .5; }
+:focus-visible { outline: 3px solid #168c75; outline-offset: 3px; }
+svg { vertical-align: middle; flex: none; }
+
+input:not([type="checkbox"]), select, textarea {
+  width: 100%;
+  min-width: 0;
+  color: var(--ink);
+  border: 1px solid #cddad5;
+  border-radius: .55rem;
+  background: white;
+  padding: .63rem .8rem;
+}
+input::placeholder, textarea::placeholder { color: #62746e; opacity: 1; }
+select {
+  appearance: none;
+  padding-right: 2rem;
+  background-image: linear-gradient(45deg, transparent 50%, #526861 50%), linear-gradient(135deg, #526861 50%, transparent 50%);
+  background-position: right 1rem center, right .7rem center;
+  background-size: .3rem .3rem;
+  background-repeat: no-repeat;
+}
+textarea { resize: vertical; }
+input[type="checkbox"] { accent-color: var(--accent); width: 1.13rem; height: 1.13rem; vertical-align: middle; }

@@ -1,0 +1,425 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "team",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "actor",
+        "type": "address"
+      }
+    ],
+    "name": "IssueAssigned",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "reportedBy",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "reportDate",
+        "type": "uint256"
+      }
+    ],
+    "name": "IssueCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum UrbanIssueRegistry.Status",
+        "name": "previousStatus",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "enum UrbanIssueRegistry.Status",
+        "name": "newStatus",
+        "type": "uint8"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "actor",
+        "type": "address"
+      }
+    ],
+    "name": "IssueStatusUpdated",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "team",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "comment",
+        "type": "string"
+      }
+    ],
+    "name": "assignIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "issueType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "enum UrbanIssueRegistry.Priority",
+        "name": "priority",
+        "type": "uint8"
+      },
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "reportDate",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "reportedBy",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "assignedTo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct UrbanIssueRegistry.ImportSource",
+        "name": "source",
+        "type": "tuple"
+      }
+    ],
+    "name": "createImportedIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "issueType",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "location",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "internalType": "enum UrbanIssueRegistry.Priority",
+        "name": "priority",
+        "type": "uint8"
+      }
+    ],
+    "name": "createIssue",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      }
+    ],
+    "name": "getHistory",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "enum UrbanIssueRegistry.Status",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "string",
+            "name": "assignedTo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "comment",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "actor",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct UrbanIssueRegistry.HistoryEntry[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      }
+    ],
+    "name": "getImportSource",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "reportDate",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "reportedBy",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "assignedTo",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct UrbanIssueRegistry.ImportSource",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      }
+    ],
+    "name": "getIssue",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "issueType",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "location",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "internalType": "enum UrbanIssueRegistry.Priority",
+            "name": "priority",
+            "type": "uint8"
+          },
+          {
+            "internalType": "enum UrbanIssueRegistry.Status",
+            "name": "status",
+            "type": "uint8"
+          },
+          {
+            "internalType": "address",
+            "name": "reportedBy",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "reportDate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "assignedTo",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct UrbanIssueRegistry.UrbanIssue",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getIssueCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "offset",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "limit",
+        "type": "uint256"
+      }
+    ],
+    "name": "getIssueIds",
+    "outputs": [
+      {
+        "internalType": "string[]",
+        "name": "ids",
+        "type": "string[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "municipality",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "issueId",
+        "type": "string"
+      },
+      {
+        "internalType": "enum UrbanIssueRegistry.Status",
+        "name": "newStatus",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "comment",
+        "type": "string"
+      }
+    ],
+    "name": "updateStatus",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
